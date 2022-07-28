@@ -19,7 +19,8 @@ db.sequelize = sequelize;
 
 db.users = require("./users")(sequelize, DataTypes);
 
+//.sync({ force: true }) > remove the all fields from the previous table and add new one
 db.sequelize
-  .sync()
+  .sync({ force: true })
   .then(() => console.log("DB re-sync"))
   .catch((err) => console.log(`Error while sync db ${err}`));
