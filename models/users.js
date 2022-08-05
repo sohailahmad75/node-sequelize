@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
   // define a model and its fields
   const User = sequelize.define(
-    "users",
+    "user",
     {
       name: DataTypes.STRING,
       email: {
@@ -13,10 +13,13 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     {
+      //  different table name than model name
+      // tableName: "USERS_LIST",
       //  if we don't want createdAt and updatedAt
       //  timestamps: false,
       //  for single createdAt: false, updatedAt: false,
-      createdAt: false,
+      // createdAt: false,
     }
   );
+  return User;
 };
